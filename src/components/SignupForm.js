@@ -15,7 +15,6 @@ const SignupForm = ({ onNext }) => {
       });
 
       if (response.ok) {
-        // Set userData cookie with email
         document.cookie = `userData=${JSON.stringify({ email })}; path=/`;
         onNext();
       }

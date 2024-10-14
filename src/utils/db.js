@@ -21,7 +21,6 @@ export const getConfig = async () => {
   await connectToDatabase();
   let config = await Config.findOne();
   if (!config) {
-    // Set default configuration
     config = new Config({
       page2: { components: ["aboutMe"] },
       page3: { components: ["address"] },
@@ -64,11 +63,9 @@ export const saveUser = async (userData) => {
   await connectToDatabase();
   const user = await User.findOne({ email: userData.email });
   if (user) {
-    // Update existing user
     Object.assign(user, userData);
     await user.save();
   } else {
-    // Create new user
     const hashedPassword = await bcrypt.hash(userData.password, 10);
     userData.password = hashedPassword;
     const newUser = new User(userData);
@@ -85,12 +82,10 @@ export const updateUserProgress = async (email, userData, currentStep) => {
   await connectToDatabase();
   const user = await User.findOne({ email });
   if (user) {
-    // Update existing user
     Object.assign(user, userData);
     user.currentStep = currentStep;
     await user.save();
   } else {
-    // Create new user
     const newUser = new User({
       ...userData,
       currentStep,
@@ -105,5 +100,5 @@ export const getUserProgress = async (email) => {
   if (user && user.currentStep !== undefined) {
     return user.currentStep;
   }
-  return 0; // Default to step 0 if not found
+  return 0;
 };

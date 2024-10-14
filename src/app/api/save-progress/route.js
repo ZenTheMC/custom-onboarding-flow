@@ -11,7 +11,6 @@ export async function POST(request) {
 
   const updatedUserData = { ...userData, ...body };
 
-  // Update user's progress in the database
   await updateUserProgress(
     updatedUserData.email,
     updatedUserData,

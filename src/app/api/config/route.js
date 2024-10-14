@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import { getConfig, saveConfig } from "../../../../utils/db";
 
 export async function GET(request) {
-  // Example: Optionally fetch based on a user-specific config using cookies
   const cookies = request.cookies;
   const userId = cookies.get("userId")?.value;
 
@@ -13,7 +12,6 @@ export async function GET(request) {
 export async function POST(request) {
   const newConfig = await request.json();
 
-  // Example usage for user-specific config
   const cookies = request.cookies;
   const userId = cookies.get("userId")?.value;
 
