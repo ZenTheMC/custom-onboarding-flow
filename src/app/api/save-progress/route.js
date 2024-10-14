@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { updateUserProgress } from "../../../../utils/db";
+import { updateUserProgress } from "@/utils/db";
 
 export async function POST(request) {
   const body = await request.json();

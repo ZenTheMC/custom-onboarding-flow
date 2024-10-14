@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
-import { saveUser } from "../../../../utils/db";
+import { saveUser } from "@/utils/db";
 
 export async function POST(request) {
   const cookiesStore = cookies();

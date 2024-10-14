@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getConfig, saveConfig } from "../../../../utils/db";
+import { getConfig, saveConfig } from "@/utils/db";
 
 export async function GET(request) {
   const cookies = request.cookies;
