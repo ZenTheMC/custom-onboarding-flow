@@ -11,10 +11,14 @@ const SignupForm = ({ onNext }) => {
       const response = await fetch("/api/save-progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email, password, currentStep: 1 }),
       });
 
-      if (response.ok) onNext();
+      if (response.ok) {
+        // Set userData cookie with email
+        document.cookie = `userData=${JSON.stringify({ email })}; path=/`;
+        onNext();
+      }
     } catch (error) {
       console.error("Failed to save progress:", error);
     }

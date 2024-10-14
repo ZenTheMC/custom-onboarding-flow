@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { getUsers } from "../../../../utils/db";
 
 export async function GET(request) {
-  // Example: Optionally fetch data based on cookie (if relevant in future logic)
-  const cookies = request.cookies;
-  const sessionId = cookies.get("sessionId")?.value;
+  const cookiesStore = cookies();
+  const sessionIdCookie = cookiesStore.get("sessionId");
+  const sessionId = sessionIdCookie ? sessionIdCookie.value : null;
 
   const users = await getUsers(sessionId);
   return NextResponse.json(users);

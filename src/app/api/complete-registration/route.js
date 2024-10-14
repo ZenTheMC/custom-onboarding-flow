@@ -1,19 +1,19 @@
 import { NextResponse } from "next/server";
+import { cookies } from "next/headers";
 import { saveUser } from "../../../../utils/db";
 
 export async function POST(request) {
-  const cookies = request.cookies;
+  const cookiesStore = cookies();
 
-  const userData = cookies.get("userData")
-    ? JSON.parse(cookies.get("userData").value)
-    : {};
+  const userDataCookie = cookiesStore.get("userData");
+  const userData = userDataCookie ? JSON.parse(userDataCookie.value) : {};
 
   await saveUser(userData);
 
   const response = NextResponse.json({ message: "Registration complete." });
-  response.cookies.set("userData", "", {
+  cookiesStore.set("userData", "", {
     path: "/",
-    maxAge: 0, // Effectively deletes the cookie
+    maxAge: 0,
     httpOnly: true,
     sameSite: "strict",
   });

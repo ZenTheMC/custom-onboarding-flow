@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { cookies } from "next/headers";
+import { updateUserProgress } from "../../../../utils/db";
 
 export async function POST(request) {
   const body = await request.json();
@@ -10,8 +11,15 @@ export async function POST(request) {
 
   const updatedUserData = { ...userData, ...body };
 
+  // Update user's progress in the database
+  await updateUserProgress(
+    updatedUserData.email,
+    updatedUserData,
+    body.currentStep
+  );
+
   const response = NextResponse.json({ message: "Progress saved." });
-  response.cookies.set("userData", JSON.stringify(updatedUserData), {
+  cookiesStore.set("userData", JSON.stringify(updatedUserData), {
     path: "/",
     httpOnly: true,
     sameSite: "strict",

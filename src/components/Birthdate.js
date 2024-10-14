@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const Birthdate = ({ onNext }) => {
+const Birthdate = ({ onNext, currentStep }) => {
   const [birthdate, setBirthdate] = useState("");
 
   const handleNext = async () => {
@@ -9,7 +9,7 @@ const Birthdate = ({ onNext }) => {
       const response = await fetch("/api/save-progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ birthdate }),
+        body: JSON.stringify({ birthdate, currentStep }),
       });
 
       if (response.ok) onNext();

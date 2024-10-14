@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const Address = ({ onNext }) => {
+const Address = ({ onNext, currentStep }) => {
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
   const [state, setState] = useState("");
@@ -12,7 +12,10 @@ const Address = ({ onNext }) => {
       const response = await fetch("/api/save-progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ address: { street, city, state, zip } }),
+        body: JSON.stringify({
+          address: { street, city, state, zip },
+          currentStep,
+        }),
       });
 
       if (response.ok) onNext();

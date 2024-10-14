@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const AboutMe = ({ onNext }) => {
+const AboutMe = ({ onNext, currentStep }) => {
   const [about, setAbout] = useState("");
 
   const handleNext = async () => {
@@ -9,7 +9,7 @@ const AboutMe = ({ onNext }) => {
       const response = await fetch("/api/save-progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ aboutMe: about }),
+        body: JSON.stringify({ aboutMe: about, currentStep }),
       });
 
       if (response.ok) onNext();
