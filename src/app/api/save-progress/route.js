@@ -11,7 +11,6 @@ export async function POST(request) {
 
   const updatedUserData = { ...userData, ...body };
 
-  // Update user's progress in the database
   await updateUserProgress(
     updatedUserData.email,
     updatedUserData,
@@ -19,7 +18,6 @@ export async function POST(request) {
   );
 
   const response = NextResponse.json({ message: "Progress saved." });
-  // Set userData cookie with email
   response.cookies.set(
     "userData",
     JSON.stringify({ email: updatedUserData.email }),

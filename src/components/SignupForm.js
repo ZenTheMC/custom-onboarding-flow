@@ -15,7 +15,6 @@ const SignupForm = ({ onNext, currentStep }) => {
       });
 
       if (response.ok) {
-        // No need to set the cookie here
         onNext();
       }
     } catch (error) {
