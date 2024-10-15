@@ -112,3 +112,14 @@ tr:nth-child(even) {
 input[type="checkbox"] {
   margin-right: 8px;
 }
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 16px;
+  }
+
+  button {
+    width: 100%;
+  }
+}

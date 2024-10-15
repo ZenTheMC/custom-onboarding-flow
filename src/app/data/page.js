@@ -11,7 +11,7 @@ const DataTable = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       <h1>User Data</h1>
       <table border="1">
         <thead>

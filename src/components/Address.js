@@ -10,18 +10,34 @@ const Address = ({ value = {}, onChange }) => {
 
   return (
     <div>
+      <label htmlFor="street">Street Address</label>
       <input
+        id="street"
         placeholder="Street Address"
         value={street}
         onChange={handleChange("street")}
       />
-      <input placeholder="City" value={city} onChange={handleChange("city")} />
+      <label htmlFor="city">City</label>
       <input
+        id="city"
+        placeholder="City"
+        value={city}
+        onChange={handleChange("city")}
+      />
+      <label htmlFor="state">State</label>
+      <input
+        id="state"
         placeholder="State"
         value={state}
         onChange={handleChange("state")}
       />
-      <input placeholder="Zip" value={zip} onChange={handleChange("zip")} />
+      <label htmlFor="zip">Zip Code</label>
+      <input
+        id="zip"
+        placeholder="Zip Code"
+        value={zip}
+        onChange={handleChange("zip")}
+      />
     </div>
   );
 };

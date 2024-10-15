@@ -37,20 +37,22 @@ const Admin = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <h1>Admin Configuration</h1>
       {["page2", "page3"].map((page) => (
         <div key={page}>
-          <h2>{page.toUpperCase()}</h2>
+          <h2>{`Configure ${page.toUpperCase()}`}</h2>
           {componentsList.map((component) => (
-            <label key={component}>
-              <input
-                type="checkbox"
-                checked={config[page].components.includes(component)}
-                onChange={() => toggleComponent(page, component)}
-              />
-              {component}
-            </label>
+            <div key={component}>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={config[page].components.includes(component)}
+                  onChange={() => toggleComponent(page, component)}
+                />
+                {component.charAt(0).toUpperCase() + component.slice(1)}
+              </label>
+            </div>
           ))}
         </div>
       ))}

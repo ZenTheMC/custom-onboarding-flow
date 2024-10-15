@@ -44,11 +44,19 @@ const Wizard = ({ steps }) => {
     stepProps.onNext = next;
   }
 
+  const progressPercentage = ((currentStep + 1) / steps.length) * 100;
+
   return (
-    <div>
+    <div className="container">
       <h2>
         Step {currentStep + 1} of {steps.length}
       </h2>
+      <div className="progress-bar">
+        <div
+          className="progress-bar-fill"
+          style={{ width: `${progressPercentage}%` }}
+        ></div>
+      </div>
       {React.cloneElement(StepComponent, stepProps)}
     </div>
   );
