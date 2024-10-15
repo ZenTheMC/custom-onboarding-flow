@@ -69,7 +69,7 @@ MongoDB Atlas Account (or a local MongoDB instance)
 ## Installation:
 
 Clone the Repository:
-git clone https://github.com/your-username/custom-onboarding-flow.git
+git clone <SSH>
 cd custom-onboarding-flow
 
 Install Dependencies:
