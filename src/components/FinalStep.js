@@ -7,7 +7,10 @@ const FinalStep = ({ onFinish }) => {
         method: "POST",
       });
 
-      if (response.ok) onFinish();
+      if (response.ok) {
+        // Clear any stored progress if necessary
+        onFinish();
+      }
     } catch (error) {
       console.error("Failed to complete registration:", error);
     }

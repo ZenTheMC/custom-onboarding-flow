@@ -25,22 +25,31 @@ const Wizard = ({ steps }) => {
   const next = () => setCurrentStep((prev) => prev + 1);
   const prev = () => setCurrentStep((prev) => prev - 1);
 
+  const finish = () => {
+    console.log("Wizard completed");
+    setCurrentStep(0);
+  };
+
   const StepComponent = steps[currentStep];
+
+  const isFinalStep = currentStep === steps.length - 1;
+  const stepProps = {
+    onPrev: prev,
+    currentStep,
+  };
+
+  if (isFinalStep) {
+    stepProps.onFinish = finish;
+  } else {
+    stepProps.onNext = next;
+  }
 
   return (
     <div>
       <h2>
         Step {currentStep + 1} of {steps.length}
       </h2>
-      {React.cloneElement(StepComponent, {
-        onNext: next,
-        onPrev: prev,
-        currentStep,
-      })}
-      <div>
-        {currentStep > 0 && <button onClick={prev}>Previous</button>}
-        {currentStep < steps.length - 1 && <button onClick={next}>Next</button>}
-      </div>
+      {React.cloneElement(StepComponent, stepProps)}
     </div>
   );
 };

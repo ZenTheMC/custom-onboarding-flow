@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 
-const SignupForm = ({ onNext }) => {
+const SignupForm = ({ onNext, currentStep }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -11,11 +11,11 @@ const SignupForm = ({ onNext }) => {
       const response = await fetch("/api/save-progress", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password, currentStep: 1 }),
+        body: JSON.stringify({ email, password, currentStep }),
       });
 
       if (response.ok) {
-        document.cookie = `userData=${JSON.stringify({ email })}; path=/`;
+        // No need to set the cookie here
         onNext();
       }
     } catch (error) {
