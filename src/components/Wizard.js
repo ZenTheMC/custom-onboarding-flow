@@ -26,7 +26,6 @@ const Wizard = ({ steps }) => {
   const prev = () => setCurrentStep((prev) => prev - 1);
 
   const finish = () => {
-    console.log("Wizard completed");
     setCurrentStep(0);
   };
 
