@@ -85,43 +85,45 @@ npm run dev
 The application will be available at http://localhost:3000
 
 ## Project Structure:
-├── src<br>
-│ ├── app<br>
-│ │ ├── api<br>
-│ │ │ ├── config<br>
-│ │ │ │ └── route.js<br>
-│ │ │ ├── save-progress<br>
-│ │ │ │ └── route.js<br>
-│ │ │ ├── complete-registration<br>
-│ │ │ │ └── route.js<br>
-│ │ │ ├── get-progress<br>
-│ │ │ │ └── route.js<br>
-│ │ │ └── users<br>
-│ │ │ └── route.js<br>
-│ │ ├── admin<br>
-│ │ │ └── page.js<br>
-│ │ ├── data<br>
-│ │ │ └── page.js<br>
-│ │ ├── page.js<br>
-│ │ └── layout.js<br>
-│ ├── components<br>
-│ │ ├── Wizard.js<br>
-│ │ ├── SignupForm.js<br>
-│ │ ├── MultiStep.js<br>
-│ │ ├── AboutMe.js<br>
-│ │ ├── Address.js<br>
-│ │ ├── Birthdate.js<br>
-│ │ └── FinalStep.js<br>
-│ └── utils<br>
-│ └── db.js<br>
-├── public<br>
-│ └── (static assets)<br>
-├── styles<br>
-│ └── globals.css<br>
-├── .env.local<br>
-├── package.json<br>
-├── README.md<br>
-└── next.config.js<br>
+```
+├── src
+│ ├── app
+│ │ ├── api
+│ │ │ ├── config
+│ │ │ │ └── route.js
+│ │ │ ├── save-progress
+│ │ │ │ └── route.js
+│ │ │ ├── complete-registration
+│ │ │ │ └── route.js
+│ │ │ ├── get-progress
+│ │ │ │ └── route.js
+│ │ │ └── users
+│ │ │ └── route.js
+│ │ ├── admin
+│ │ │ └── page.js
+│ │ ├── data
+│ │ │ └── page.js
+│ │ ├── page.js
+│ │ └── layout.js
+│ ├── components
+│ │ ├── Wizard.js
+│ │ ├── SignupForm.js
+│ │ ├── MultiStep.js
+│ │ ├── AboutMe.js
+│ │ ├── Address.js
+│ │ ├── Birthdate.js
+│ │ └── FinalStep.js
+│ └── utils
+│ └── db.js
+├── public
+│ └── (static assets)
+├── styles
+│ └── globals.css
+├── .env.local
+├── package.json
+├── README.md
+└── next.config.js
+```
 
 ## Usage:
 
