@@ -84,7 +84,7 @@ Development Mode:
 npm run dev
 The application will be available at http://localhost:3000
 
-Project Structure:
+## Project Structure:
 ├── src
 │ ├── app
 │ │ ├── api
